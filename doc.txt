@@ -1,0 +1,5 @@
+1. Create facebook app
+2. Facebook authorization
+3. Response from fb: accessToken
+4. Send accessToken to server via api: create user api
+5.

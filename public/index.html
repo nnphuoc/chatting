@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+            <!-- <div id="profile">
+                <img src="https://scontent.fdad2-1.fna.fbcdn.net/v/t1.0-1/c0.0.24.24a/p24x24/1235984_1406149136279844_1331697763_n.jpg?_nc_cat=110&_nc_oc=AQnLl0_AeWLa8_SqpMb6NKel5F_IlfFVVzZ7KIaNVMwcuTDzvFoAbpZktaV006SA_MzEXdl_6qwuABsO13AZRHWF&_nc_ht=scontent.fdad2-1.fna&oh=65619070a3314bd3023c1424088a24f4&oe=5D80DF70">
+                <p></p>
+            </div> -->
+            <button id="login" class="btn btn-secondary my-2 my-sm-0" >Login</button>
+            <button id="logout" class="btn btn-secondary my-2 my-sm-0" type="submit" style="display: none">Logout</button>
+        </div>
+    </div>
+</nav>
+<div id="main" class="container-fluid" style="display: none">
+    <div class="row wrapper">
+        <div class="group-list col-3">
+            <div class="header">
+                <img src="./images/user.png" />
+                <h3 id="name"></h3>
+            </div>
+            <div class="search">
+                <input type="text" id="search" placeholder="Tìm kiếm tin nhắn" />
+            </div>
+            <div id="list-group" class="list">
+
+            </div>
+        </div>
+        <div class="chat-box col-9">
+            <div class="header">
+                <div class="info">
+                    <img src="./images/user.png" />
+                    <p>Ngọc Sơn</p>
+                </div>
+            </div>
+            <div id="messages" class="list"></div>
+            <div class="box">
+                <input id="input" type="text" placeholder="Nhập tin nhắn" >
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal-login" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Please Login</h2>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form class="form-horizontal" role="form" style="margin: 15px;">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div class="form-group has-danger">
+                        <label class="sr-only" for="username">Username</label>
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                            <input type="text" name="username" class="form-control" id="input-username"
+                                   placeholder="User name" required autofocus>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label class="sr-only" for="password">Password</label>
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+                            <input type="password" name="password" class="form-control" id="input-password"
+                                   placeholder="Password" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                    <div class="form-control-feedback">
+                        <span class="text-danger align-middle">
+                        <!-- Put password error message here -->    
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row" style="padding-top: 1rem">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <button type="button" id="btn-login" class="btn btn-success"><i class="fa fa-sign-in"></i> Login</button>
+                    <a href="../sign-up.html">Not have account?</a> |
+                    <a href="forgot-password.html">Forgot Your Password?</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div class="form-control-feedback">
+                        <span class="text-danger align-middle" id='error-message'>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <fb:login-button
+                            scope="public_profile,email"
+                            onlogin="checkLoginState();">
+                    </fb:login-button>
+                    <hr>
+                </div>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/authentication.js"></script>
+<script type="text/javascript" src="js/facebook-sdk.js"></script>
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</html>
